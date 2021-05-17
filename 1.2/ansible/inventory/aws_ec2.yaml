@@ -1,9 +1,10 @@
+---
 plugin: aws_ec2
-aws_access_key: AKIAV222A3F7KQDUC27G
-aws_secret_key: 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
-compose:
-  ansible_host: public_ip_address
-regions:
-  - us-west-2
-filters:
-  tag:aws:autoscaling:groupName: genesis
+aws_access_key: AKIAV222A3F7LMSULWP2
+aws_secret_key: 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
+#compose:
+#  ansible_host: public_ip_address
+#regions:
+#  - us-west-2
+#filters:
+#  tag:Name: genesis

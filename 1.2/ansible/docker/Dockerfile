@@ -6,6 +6,9 @@ RUN apt update; \
     apt-add-repository --yes --update ppa:ansible/ansible; \
     apt install ansible -y
 
+RUN apt install python3-pip -y; \
+    pip3 install boto3
+
 #aws cli
 RUN apt install curl unzip -y
 

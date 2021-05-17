@@ -13,13 +13,6 @@
 - name: Starting service nginx
   service: name=nginx state=started
   become: yes
-
-- name: reload nginx
-  service:
-    name: nginx
-    state: reloaded
-  when: nginx_debug.rc == 0
-  become: true
   
   
   

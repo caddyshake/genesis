@@ -3,17 +3,17 @@ arg=$1
 
 if [[ "$1" ]];
 then
-  echo "Variable are set!"
+  echo "Variables set!"
 else
-  echo "Have not variables set! Usage '"bash script.sh nginx or httpd"'"
+  echo "Have not variables set! Usage '"bash script.sh ansible or terraform"'"
 fi
 
-if [[ "$1" == "nginx" ]];
+if [[ "$1" == "ansible" ]];
 then
-  docker run -it nginx
+  docker run -it ansible:kirin
 fi
 
-if [[ "$1" == "httpd" ]];
+if [[ "$1" == "terraform" ]];
 then
-  docker run -it httpd
+  docker run -it terraform:kirin
 fi

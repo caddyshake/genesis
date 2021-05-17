@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+       - 80:80
+    volumes:
+      - ./docroot/:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
+
+  php:
+    image: "php:7.3.28-fpm-buster"
+    container_name: php
+    volumes:
+      - ./docroot/:/var/www/html
+      - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    networks:
+     vpcbr:
+        ipv4_address: 10.5.0.5
+  redis:
+    image: "redis:alpine"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.4
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
+         ip_range: 10.5.0.0/24
